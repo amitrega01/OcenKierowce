@@ -1,5 +1,5 @@
 import React from 'reactn';
-import { Text, View } from 'react-native';
+import { Text, View, TextInput } from 'react-native';
 import Styles from '../consts/Styles';
 import BigButton from '../components/BigButton';
 export class FirstRunScreen extends React.Component {
@@ -16,6 +16,7 @@ export class FirstRunScreen extends React.Component {
           onPress={() => alert('Rejestracja')}
           width='80%'
         />
+        <TextInput style={Styles.textInput} placeholder="email" ></TextInput>
       </View>
     );
   }
