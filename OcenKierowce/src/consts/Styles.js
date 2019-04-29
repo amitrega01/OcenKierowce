@@ -13,6 +13,10 @@ export default (styles = StyleSheet.create({
     padding: 12,
     borderRadius: 16,
     elevation: 4,
+    textAlign: 'center',
+    fontSize: 14,
+    fontWeight: 'bold',
+    
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: '#FFF'
