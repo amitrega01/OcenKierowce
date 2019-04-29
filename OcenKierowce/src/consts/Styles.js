@@ -16,7 +16,6 @@ export default (styles = StyleSheet.create({
     textAlign: 'center',
     fontSize: 14,
     fontWeight: 'bold',
-    
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: '#FFF'
