@@ -22,6 +22,7 @@ export class FirstRunScreen extends React.Component {
           onPress={() => alert("Logowanie")}
           width="80%"
         />
+        <BigButton color="#000" title="Anonimowo" width="80%" />
       </View>
     );
   }
