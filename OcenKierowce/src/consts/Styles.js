@@ -6,10 +6,9 @@ export default (styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: '#F9FAFE',
-
   },
   textInput: {
-    width:80+"%",
+    width: 80 + '%',
     padding: 12,
     borderRadius: 16,
     elevation: 4,
@@ -18,7 +17,11 @@ export default (styles = StyleSheet.create({
     fontWeight: 'bold',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#FFF'
-  }
+    backgroundColor: '#FFF',
+  },
+  bigText: {
+    fontSize: 32,
+    fontWeight: 'bold',
+    padding: 32,
+  },
 }));
-
