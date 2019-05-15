@@ -19,6 +19,12 @@ export default (styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: '#FFF'
+  },
+  text: {
+    fontSize:30,
+    fontWeight: 'bold'
   }
+   
+
 }));
 
