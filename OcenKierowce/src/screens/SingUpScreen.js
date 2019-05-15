@@ -12,7 +12,10 @@ export class SingUpScreen extends React.Component {
   render() {
     return (
       <View style={Styles.wrapper}>
-         <Text style = {Styles.text}>Rejestracja</Text>
+         <Text style = {Styles.text}>Rejestracja</Text>        
+        <TextInput style={Styles.textInput} placeholder="Email"></TextInput>
+        <TextInput style={Styles.textInput} placeholder="Hasło"></TextInput>
+        
         
       </View>
     );
