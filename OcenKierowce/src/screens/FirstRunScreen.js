@@ -13,10 +13,9 @@ export class FirstRunScreen extends React.Component {
         <BigButton
           color='#151146'
           title='Zarejestruj się'
-          onPress={() => alert('Rejestracja')}
+          onPress={() => this.props.navigation.navigate('SignUp')}
           width='80%'
         />
-        <TextInput style={Styles.textInput} placeholder="email" ></TextInput>
       </View>
     );
   }
