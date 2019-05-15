@@ -2,6 +2,7 @@ import React from 'reactn';
 import { Text, View } from 'react-native';
 import Styles from '../consts/Styles';
 import BigButton from '../components/BigButton';
+import BigAlert from '../components/BigAlert';
 export class FirstRunScreen extends React.Component {
   static navigationOptions = {
     header: null,
@@ -11,6 +12,7 @@ export class FirstRunScreen extends React.Component {
     return (
       <View style={Styles.wrapper}>
         <Text style={Styles.bigText}>OcenKierowce</Text>
+        <BigAlert />
         <BigButton
           color='#151146'
           title='Zarejestruj się'
