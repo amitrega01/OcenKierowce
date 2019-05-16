@@ -3,6 +3,7 @@ import { Text, View } from 'react-native';
 import Styles from '../consts/Styles';
 import BigButton from '../components/BigButton';
 import BigAlert from '../components/BigAlert';
+
 export class FirstRunScreen extends React.Component {
   static navigationOptions = {
     header: null,
@@ -11,6 +12,7 @@ export class FirstRunScreen extends React.Component {
   render() {
     return (
       <View style={Styles.wrapper}>
+        <Text style={Styles.bigText}>OcenKierowce</Text>
         <BigButton
           color='#151146'
           title='Zarejestruj się'
@@ -35,6 +37,7 @@ export class FirstRunScreen extends React.Component {
             this.props.navigation.navigate('Home');
           }}
         />
+     
       </View>
     );
   }
