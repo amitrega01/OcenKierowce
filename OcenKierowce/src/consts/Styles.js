@@ -2,7 +2,9 @@ import { StyleSheet } from 'react-native';
 
 export default (styles = StyleSheet.create({
   wrapper: {
+    paddingTop: 24,
     flex: 1,
+    width: '100%',
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: '#F9FAFE',
@@ -43,5 +45,14 @@ export default (styles = StyleSheet.create({
     justifyContent: 'center',
     backgroundColor: '#FFF',
     margin: 25,
+  },
+  mediumText: {
+    paddingHorizontal: 16,
+    paddingBottom: 4,
+    width: '100%',
+    textAlign: 'left',
+    fontSize: 24,
+    fontWeight: 'bold',
+    color: 'rgba(0,0,0,0.75)',
   },
 }));
