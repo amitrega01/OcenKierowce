@@ -1,6 +1,7 @@
 import React from 'reactn';
 import { Text, View } from 'react-native';
 import Styles from '../consts/Styles';
+import RecentAlerts from '../containers/RecentAlerts';
 
 export class HomeScreen extends React.Component {
   static navigationOptions = {
@@ -15,7 +16,7 @@ export class HomeScreen extends React.Component {
       return (
         <View style={Styles.wrapper}>
           {/* wariant dla anonimowych */}
-          <Text>Anonimowo</Text>
+          <RecentAlerts style={{ width: '100%' }} />
         </View>
       );
     } else {

@@ -2,7 +2,7 @@ import React from 'reactn';
 import { Text, View } from 'react-native';
 import Styles from '../consts/Styles';
 import BigButton from '../components/BigButton';
-import Opinion from '../components/Opinion';
+import BigAlert from '../components/BigAlert';
 export class FirstRunScreen extends React.Component {
   static navigationOptions = {
     header: null,
