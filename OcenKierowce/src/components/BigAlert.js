@@ -1,26 +1,46 @@
 import React from 'reactn';
 import { Text, View, StyleSheet, Image, TouchableOpacity } from 'react-native';
 export class BigAlert extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
   //TODO: dodac propsy i przetestowac na jakisch zmockowanych danych json
   render() {
+    var color;
+    switch (this.props.alert.alertType) {
+      case 'alert': {
+        color = '#FE4F37';
+        break;
+      }
+      case 'positive': {
+        color = '#00D463';
+        break;
+      }
+      case 'negative': {
+        color = '#151146';
+        break;
+      }
+    }
     return (
       <TouchableOpacity
         style={styles.wrapper}
         activeOpacity={0.9}
         onPress={() => {
-          alert('Wyskakujace okno, wiecej informacji, kto dodal itp');
+          alert(JSON.stringify(this.props.alert));
         }}>
         <View style={styles.content}>
-          <Text style={styles.header}>Wypadek </Text>
-          <Text style={styles.date}>{Date.now()}</Text>
-          <Text style={styles.description}>Opis wypadku czyli cos tam cos</Text>
+          <Text style={[styles.header, { backgroundColor: color }]}>
+            {this.props.alert.title}{' '}
+          </Text>
+          <Text style={styles.date}>{this.props.alert.date}</Text>
+          <Text style={styles.description}>{this.props.alert.description}</Text>
         </View>
         <View style={styles.imagePart}>
           <Image
             style={styles.image}
             source={{
-              uri:
-                'http://bielskiedrogi.pl/sites/default/files/szalony_poscig_zakonczony_na_torowisku_11_05_2019_a374.jpg',
+              uri: this.props.alert.image,
             }}
           />
         </View>
@@ -45,7 +65,6 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
   },
   header: {
-    backgroundColor: '#FE4F37',
     paddingHorizontal: 16,
     paddingVertical: 8,
     color: 'white',
