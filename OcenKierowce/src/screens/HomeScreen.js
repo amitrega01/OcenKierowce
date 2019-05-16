@@ -16,7 +16,7 @@ export class HomeScreen extends React.Component {
       return (
         <View style={Styles.wrapper}>
           {/* wariant dla anonimowych */}
-          <RecentAlerts style={{ width: '100%' }} />
+          <RecentAlerts />
         </View>
       );
     } else {
