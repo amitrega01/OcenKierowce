@@ -6,15 +6,25 @@ class Opinion extends Component {
     super(props);
   }
   render() {
+      var color;
+      switch(this.props.opinion.type)
+      {
+          case 'positive': { color= '#02e053'; break;}
+          
+
+          case 'negative' : {color = '#ed0000'; break;}
+          
+
+      }
     return (
       <TouchableOpacity
         activeOpacity={0.8}
         style={[
           styles.wrapper,
-          { backgroundColor: this.props.color, width: this.props.width },
+          { backgroundColor: color },
         ]}
         onPress={this.props.onPress}>
-        <Text style={styles.text}>{this.props.title}</Text>
+        <Text style={styles.text}>{this.props.opinion.content}</Text>
       </TouchableOpacity>
     );
   }
@@ -34,6 +44,6 @@ const styles = StyleSheet.create({
   text: {
     fontWeight: 'normal',
     color: '#fff',
-    fontSize: 12,
+    fontSize: 15,
   },
 });
