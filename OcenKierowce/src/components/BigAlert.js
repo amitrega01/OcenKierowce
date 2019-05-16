@@ -52,13 +52,13 @@ export default BigAlert;
 
 const styles = StyleSheet.create({
   wrapper: {
-    width: '90%',
     height: 140,
     elevation: 4,
     borderRadius: 16,
     backgroundColor: '#fff',
     flexDirection: 'row',
     overflow: 'hidden',
+    marginBottom: 8,
   },
   content: {
     flex: 4,
