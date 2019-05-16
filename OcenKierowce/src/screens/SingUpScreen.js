@@ -3,6 +3,18 @@ import { Text, View, TextInput, KeyboardAvoidingView } from 'react-native';
 import Styles from '../consts/Styles';
 import BigButton from '../components/BigButton';
 
+import * as firebase from 'firebase';
+const firebaseConfig = {
+  apiKey: 'AIzaSyAoSy-wVIwP4TBal-2KH8MyQdj3dvJVNDM',
+  authDomain: 'ocenkierowce-553e9.firebaseapp.com',
+  databaseURL: 'https://ocenkierowce-553e9.firebaseio.com',
+  projectId: 'ocenkierowce-553e9',
+  storageBucket: 'ocenkierowce-553e9.appspot.com',
+  messagingSenderId: '168007944726',
+  appId: '1:168007944726:web:c3d0a465fd039233',
+};
+firebase.initializeApp(firebaseConfig);
+
 export class SingUpScreen extends React.Component {
   static navigationOptions = {
     header: null,
@@ -17,6 +29,40 @@ export class SingUpScreen extends React.Component {
       plateNumber: '',
     };
   }
+
+  registerUser = () => {
+    firebase
+      .auth()
+      .createUserWithEmailAndPassword(this.state.email, this.state.password)
+      .catch(function(error) {
+        // Handle Errors here.
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        console.log(errorCode);
+        console.log(errorMessage);
+      });
+    var state = this.state;
+    firebase.auth().onAuthStateChanged(function(user) {
+      if (user) {
+        var email = user.email;
+        var uid = user.uid;
+        console.log('Zalogowano:');
+        console.log(email);
+        firebase
+          .database()
+          .ref('users/' + uid)
+          .set({
+            email: email,
+            plateNumber: state.plateNumber,
+            name: state.name,
+          });
+        // ...
+      } else {
+        // User is signed out.
+        // ...
+      }
+    });
+  };
   render() {
     return (
       <KeyboardAvoidingView style={Styles.wrapper} behavior='padding' enabled>
@@ -49,7 +95,7 @@ export class SingUpScreen extends React.Component {
         <BigButton
           color='#151146'
           title='Zarejestruj się'
-          onPress={() => console.log(this.state)}
+          onPress={this.registerUser}
           width='80%'
         />
       </KeyboardAvoidingView>

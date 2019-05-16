@@ -9,16 +9,18 @@ export class BigAlert extends React.Component {
   render() {
     var color;
     switch (this.props.alert.alertType) {
-      case 'alert': {
-        color = '#FE4F37';
-        break;
-      }
+      case 'alert':
+        {
+          color = '#151146';
+          break;
+        }
+        s;
       case 'positive': {
         color = '#00D463';
         break;
       }
       case 'negative': {
-        color = '#151146';
+        color = '#FE4F37';
         break;
       }
     }
