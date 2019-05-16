@@ -2,6 +2,7 @@ import React from 'reactn';
 import { Text, View } from 'react-native';
 import Styles from '../consts/Styles';
 import BigButton from '../components/BigButton';
+import Opinion from '../components/Opinion';
 export class FirstRunScreen extends React.Component {
   static navigationOptions = {
     header: null,
@@ -10,8 +11,12 @@ export class FirstRunScreen extends React.Component {
   render() {
     return (
       <View style={Styles.wrapper}>
+<<<<<<< HEAD
         <Text style={Styles.bigText}>OcenKierowce</Text>
         <BigButton
+=======
+       {/*<BigButton
+>>>>>>> opinion on firstrunscreen
           color='#151146'
           title='Zarejestruj się'
           onPress={() => this.props.navigation.navigate('SignUp')}
@@ -35,6 +40,18 @@ export class FirstRunScreen extends React.Component {
             this.props.navigation.navigate('Home');
           }}
         />
+<<<<<<< HEAD
+=======
+        
+      <TextInput style={Styles.textInput} placeholder="email" ></TextInput>
+      */}
+      <Opinion 
+       width = '50%'
+       title = 'Wyprzedzal na ciaglej'
+       color= '#221849'
+       onPress = {() => alert('Opinia')}         
+       />
+>>>>>>> opinion on firstrunscreen
       </View>
     );
   }
