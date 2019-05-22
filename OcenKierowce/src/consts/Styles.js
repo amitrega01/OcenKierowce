@@ -64,5 +64,19 @@ export default (styles = StyleSheet.create({
     alignItems: 'center',
     position: 'absolute',
     bottom: 0
+  },
+  footerTextInput: {
+    width:200  ,
+    height:40,
+    borderRadius: 16,
+    elevation: 4,
+    textAlign: 'center',
+    fontSize: 14,
+    fontWeight: 'bold',
+    backgroundColor: '#FFF',
+  }, 
+  footerImages: {
+    width: 80,
+    height: 80
   }
 }));

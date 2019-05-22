@@ -43,21 +43,13 @@ export class FirstRunScreen extends React.Component {
       
         <View style={ Styles.footer} >
           <TextInput
-                  style={{width:200  ,
-                    height:40,
-                    borderRadius: 16,
-                    elevation: 4,
-                    textAlign: 'center',
-                    fontSize: 14,
-                    fontWeight: 'bold',
-                    backgroundColor: '#FFF'
-                }}
+                  style={Styles.footerTextInput}
           />
           <TouchableOpacity>
-            <Image style={ { width: 80, height: 80}} source={require('./image/redbutton.png')} />
+            <Image style={ Styles.footerImages } source={require('./image/redbutton.png')} />
           </TouchableOpacity>
           <TouchableOpacity>
-            <Image style={ { width: 80, height: 80}} source={require('./image/image.png')} />
+            <Image style={Styles.footerImages} source={require('./image/image.png')} />
           </TouchableOpacity>
         </View>
       </View>
