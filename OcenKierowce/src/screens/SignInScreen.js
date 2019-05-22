@@ -13,8 +13,8 @@ export class SingInScreen extends React.Component {
     super(props);
 
     this.state = {
-      email: '',
-      password: '',
+      email: 'amitrega01@gmail.com',
+      password: 'insu1insu',
     };
   }
 
@@ -31,7 +31,13 @@ export class SingInScreen extends React.Component {
         // ...
       })
       .then(() => {
-        this.props.navigation.navigate('Home');
+        firebase
+          .database()
+          .ref('users/' + firebase.auth().currentUser.uid)
+          .on('value', snapshot => {
+            this.setGlobal({ userDetails: snapshot.val() });
+            this.props.navigation.navigate('Home');
+          });
       });
   };
   render() {
