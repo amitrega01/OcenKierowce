@@ -4,16 +4,6 @@ import Styles from '../consts/Styles';
 import BigButton from '../components/BigButton';
 
 import * as firebase from 'firebase';
-const firebaseConfig = {
-  apiKey: 'AIzaSyAoSy-wVIwP4TBal-2KH8MyQdj3dvJVNDM',
-  authDomain: 'ocenkierowce-553e9.firebaseapp.com',
-  databaseURL: 'https://ocenkierowce-553e9.firebaseio.com',
-  projectId: 'ocenkierowce-553e9',
-  storageBucket: 'ocenkierowce-553e9.appspot.com',
-  messagingSenderId: '168007944726',
-  appId: '1:168007944726:web:c3d0a465fd039233',
-};
-firebase.initializeApp(firebaseConfig);
 
 export class SingUpScreen extends React.Component {
   static navigationOptions = {
