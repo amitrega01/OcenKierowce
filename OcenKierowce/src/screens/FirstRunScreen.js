@@ -1,16 +1,19 @@
 import React from 'reactn';
-import { Text, View } from 'react-native';
+import { Text, View, Image, TouchableOpacity, TextInput } from 'react-native';
 import Styles from '../consts/Styles';
 import BigButton from '../components/BigButton';
 import BigAlert from '../components/BigAlert';
+
 
 export class FirstRunScreen extends React.Component {
   static navigationOptions = {
     header: null,
   };
 
+  
   render() {
     return (
+      
       <View style={Styles.wrapper}>
         <Text style={Styles.bigText}>OcenKierowce</Text>
         <BigButton
@@ -37,9 +40,43 @@ export class FirstRunScreen extends React.Component {
             this.props.navigation.navigate('Home');
           }}
         />
-     
+      
+        <View style={ { 
+          flexDirection: 'row',  
+          width: '100%', 
+          height: 80, 
+          backgroundColor: '#F9FAFE', 
+          justifyContent: 'center', 
+          alignItems: 'center',
+          position: 'absolute',
+          bottom: 0
+        }} >
+          <TextInput
+                  style={{width:200  ,
+                  height:40,
+                  borderRadius: 16,
+                  elevation: 4,
+                  textAlign: 'center',
+                  fontSize: 14,
+                  fontWeight: 'bold',
+                  //alignItems: 'center',
+                  //justifyContent: 'center',
+                  backgroundColor: '#FFF',
+                  //margin: 25,
+                }}
+          />
+          <TouchableOpacity>
+            <Image style={ { width: 80, height: 80}} source={require('./image/redbutton.png')} />
+          </TouchableOpacity>
+          <TouchableOpacity>
+            <Image style={ { width: 80, height: 80}} source={require('./image/image.png')} />
+          </TouchableOpacity>
+        </View>
       </View>
+      
+      
+      
     );
-  }
+  }0
 }
 export default FirstRunScreen;
