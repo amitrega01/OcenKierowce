@@ -55,4 +55,14 @@ export default (styles = StyleSheet.create({
     fontWeight: 'bold',
     color: 'rgba(0,0,0,0.75)',
   },
+  footer: {
+    flexDirection: 'row',  
+    width: '100%', 
+    height: 80, 
+    backgroundColor: '#F9FAFE', 
+    justifyContent: 'center', 
+    alignItems: 'center',
+    position: 'absolute',
+    bottom: 0
+  }
 }));

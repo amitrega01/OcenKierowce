@@ -41,28 +41,16 @@ export class FirstRunScreen extends React.Component {
           }}
         />
       
-        <View style={ { 
-          flexDirection: 'row',  
-          width: '100%', 
-          height: 80, 
-          backgroundColor: '#F9FAFE', 
-          justifyContent: 'center', 
-          alignItems: 'center',
-          position: 'absolute',
-          bottom: 0
-        }} >
+        <View style={ Styles.footer} >
           <TextInput
                   style={{width:200  ,
-                  height:40,
-                  borderRadius: 16,
-                  elevation: 4,
-                  textAlign: 'center',
-                  fontSize: 14,
-                  fontWeight: 'bold',
-                  //alignItems: 'center',
-                  //justifyContent: 'center',
-                  backgroundColor: '#FFF',
-                  //margin: 25,
+                    height:40,
+                    borderRadius: 16,
+                    elevation: 4,
+                    textAlign: 'center',
+                    fontSize: 14,
+                    fontWeight: 'bold',
+                    backgroundColor: '#FFF'
                 }}
           />
           <TouchableOpacity>
