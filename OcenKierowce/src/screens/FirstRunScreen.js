@@ -22,7 +22,7 @@ export class FirstRunScreen extends React.Component {
         <BigButton
           color='#00D463'
           title='Zaloguj się'
-          onPress={() => alert('Logowanie')}
+          onPress={() => this.props.navigation.navigate('SingIn')}
           width='60%'
         />
         <BigButton
