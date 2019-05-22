@@ -8,6 +8,7 @@ import NewMessageScreen from './src/screens/NewMessageScreen';
 
 import CameraScreen from './src/screens/CameraScreen';
 
+import SingInScreen from './src/screens/SingInScreen';
 const MainNavigator = createStackNavigator({
   //TODO EKRANY
   FirstRun: { screen: FirstRunScreen },
@@ -16,6 +17,7 @@ const MainNavigator = createStackNavigator({
   SignIn: { screen: SingInScreen },
   NewMessage: { screen: NewMessageScreen },
   Camera: { screen: CameraScreen },
+  SingIn: { screen: SingInScreen },
 });
 
 const AppContainer = createAppContainer(MainNavigator);
