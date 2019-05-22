@@ -6,25 +6,24 @@ class Opinion extends Component {
     super(props);
   }
   render() {
-      var color;
-      switch(this.props.opinion.type)
-      {
-          case 'positive': { color= '#02e053'; break;}
-          
-
-          case 'negative' : {color = '#ed0000'; break;}
-          
-
+    var color;
+    switch (this.props.opinion.type) {
+      case 'UPVOTE': {
+        color = '#02e053';
+        break;
       }
+
+      case 'DOWNVOTE': {
+        color = '#ed0000';
+        break;
+      }
+    }
     return (
       <TouchableOpacity
         activeOpacity={0.8}
-        style={[
-          styles.wrapper,
-          { backgroundColor: color },
-        ]}
+        style={[styles.wrapper, { backgroundColor: color }]}
         onPress={this.props.onPress}>
-        <Text style={styles.text}>{this.props.opinion.content}</Text>
+        <Text style={styles.text}>{this.props.opinion.message}</Text>
       </TouchableOpacity>
     );
   }
@@ -39,7 +38,7 @@ const styles = StyleSheet.create({
     padding: 16,
     elevation: 4,
     borderRadius: 20,
-    padding: 20
+    padding: 20,
   },
   text: {
     fontWeight: 'normal',

@@ -13,6 +13,7 @@ import Footer from '../containers/Footer';
 import { Constants, Location, Permissions } from 'expo';
 
 import * as firebase from 'firebase';
+import AboutYou from '../containers/AboutYou';
 
 export class HomeScreen extends React.Component {
   static navigationOptions = {
@@ -65,6 +66,7 @@ export class HomeScreen extends React.Component {
       return (
         <KeyboardAvoidingView behavior='padding' style={Styles.wrapper}>
           {/* wariant dla anonimowych */}
+          <AboutYou />
           <RecentAlerts />
 
           <Footer

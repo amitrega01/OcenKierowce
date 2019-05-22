@@ -23,6 +23,8 @@ setGlobal({
   region: 'Oczekiwanie na GPS',
   currentType: 'UPVOTE',
   recentAlerts: [],
+  userDetails: null,
+  aboutYou: [],
   lastPhoto: null,
 });
 

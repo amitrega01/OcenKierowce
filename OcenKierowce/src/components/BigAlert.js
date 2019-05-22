@@ -54,7 +54,7 @@ export default BigAlert;
 const styles = StyleSheet.create({
   wrapper: {
     height: 140,
-    elevation: 4,
+    elevation: 2,
     borderRadius: 16,
     backgroundColor: '#fff',
     flexDirection: 'row',
