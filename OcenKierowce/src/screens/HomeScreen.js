@@ -1,7 +1,18 @@
 import React from 'reactn';
-import { Text, View } from 'react-native';
+import {
+  Text,
+  KeyboardAvoidingView,
+  TouchableOpacity,
+  View,
+  Platform,
+} from 'react-native';
 import Styles from '../consts/Styles';
 import RecentAlerts from '../containers/RecentAlerts';
+import Footer from '../containers/Footer';
+
+import { Constants, Location, Permissions } from 'expo';
+
+import * as firebase from 'firebase';
 
 export class HomeScreen extends React.Component {
   static navigationOptions = {
@@ -11,20 +22,56 @@ export class HomeScreen extends React.Component {
     super(props);
   }
 
+  componentWillMount() {
+    if (Platform.OS === 'android' && !Constants.isDevice) {
+      console.log(
+        'Oops, this will not work on Sketch in an Android emulator. Try it on your device!'
+      );
+    } else {
+      console.log('GETTING LOCATION');
+      this._getLocationAsync();
+    }
+  }
+
+  _getLocationAsync = async () => {
+    let { status } = await Permissions.askAsync(Permissions.LOCATION);
+    if (status !== 'granted') {
+      console.log('NO PERMISSION');
+    }
+    let location = await Location.getCurrentPositionAsync({});
+    console.log(location);
+    let addres = await Location.reverseGeocodeAsync({
+      latitude: location.coords.latitude,
+      longitude: location.coords.longitude,
+    });
+    console.log(addres);
+    this.setGlobal({ region: addres[0].region });
+  };
+
   render() {
-    if (this.global.anonymous) {
+    if (firebase.auth().currentUser.isAnonymous) {
       return (
-        <View style={Styles.wrapper}>
+        <KeyboardAvoidingView behavior='padding' style={Styles.wrapper}>
           {/* wariant dla anonimowych */}
           <RecentAlerts />
-        </View>
+
+          <Footer
+            style={{ position: 'fixed', bottom: 0 }}
+            bigButtonPress={() => this.props.navigation.navigate('NewMessage')}
+          />
+        </KeyboardAvoidingView>
       );
     } else {
       return (
-        <View style={Styles.wrapper}>
-          {/* wariant dla zalogowanych */}
-          <Text>{this.global.user.name}</Text>
-        </View>
+        <KeyboardAvoidingView behavior='padding' style={Styles.wrapper}>
+          {/* wariant dla anonimowych */}
+          <RecentAlerts />
+
+          <Footer
+            style={{ position: 'fixed', bottom: 0 }}
+            bigButtonPress={() => this.props.navigation.navigate('NewMessage')}
+          />
+        </KeyboardAvoidingView>
       );
     }
   }

@@ -8,18 +8,16 @@ export class BigAlert extends React.Component {
   //TODO: dodac propsy i przetestowac na jakisch zmockowanych danych json
   render() {
     var color;
-    switch (this.props.alert.alertType) {
-      case 'alert':
-        {
-          color = '#151146';
-          break;
-        }
-        s;
-      case 'positive': {
+    switch (this.props.alert.type) {
+      case 'ALERT': {
+        color = '#151146';
+        break;
+      }
+      case 'UPVOTE': {
         color = '#00D463';
         break;
       }
-      case 'negative': {
+      case 'DOWNVOTE': {
         color = '#FE4F37';
         break;
       }
@@ -33,18 +31,19 @@ export class BigAlert extends React.Component {
         }}>
         <View style={styles.content}>
           <Text style={[styles.header, { backgroundColor: color }]}>
-            {this.props.alert.title}{' '}
+            {this.props.alert.plateNumber}{' '}
           </Text>
-          <Text style={styles.date}>{this.props.alert.date}</Text>
-          <Text style={styles.description}>{this.props.alert.description}</Text>
+          <Text style={styles.date}>{this.props.alert.timeStamp}</Text>
+          <Text style={styles.date}>{this.props.alert.region}</Text>
+          <Text style={styles.description}>{this.props.alert.message}</Text>
         </View>
         <View style={styles.imagePart}>
-          <Image
+          {/* <Image
             style={styles.image}
             source={{
               uri: this.props.alert.image,
             }}
-          />
+          /> */}
         </View>
       </TouchableOpacity>
     );

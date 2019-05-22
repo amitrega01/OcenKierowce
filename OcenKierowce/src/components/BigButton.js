@@ -14,7 +14,10 @@ class BigButton extends Component {
           { backgroundColor: this.props.color, width: this.props.width },
         ]}
         onPress={this.props.onPress}>
-        <Text style={styles.text}>{this.props.title}</Text>
+        <Text
+          style={this.props.color == '#FFF' ? styles.textDark : styles.text}>
+          {this.props.title}
+        </Text>
       </TouchableOpacity>
     );
   }
@@ -33,6 +36,11 @@ const styles = StyleSheet.create({
   text: {
     fontWeight: 'bold',
     color: '#fff',
+    fontSize: 18,
+  },
+  textDark: {
+    fontWeight: 'bold',
+    color: 'rgba(0,0,0,0.75)',
     fontSize: 18,
   },
 });

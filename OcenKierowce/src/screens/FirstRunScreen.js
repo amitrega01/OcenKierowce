@@ -2,8 +2,8 @@ import React from 'reactn';
 import { Text, View } from 'react-native';
 import Styles from '../consts/Styles';
 import BigButton from '../components/BigButton';
-import BigAlert from '../components/BigAlert';
 
+import * as firebase from 'firebase';
 export class FirstRunScreen extends React.Component {
   static navigationOptions = {
     header: null,
@@ -22,7 +22,7 @@ export class FirstRunScreen extends React.Component {
         <BigButton
           color='#00D463'
           title='Zaloguj się'
-          onPress={() => alert('Logowanie')}
+          onPress={() => this.props.navigation.navigate('SignIn')}
           width='60%'
         />
         <BigButton
@@ -34,10 +34,14 @@ export class FirstRunScreen extends React.Component {
             this.setGlobal({
               anonymous: true,
             });
-            this.props.navigation.navigate('Home');
+            firebase
+              .auth()
+              .signInAnonymously()
+              .then(() => {
+                this.props.navigation.navigate('Home');
+              });
           }}
         />
-     
       </View>
     );
   }
