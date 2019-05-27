@@ -1,22 +1,23 @@
-import React from 'reactn';
-import { Text, View, TextInput, KeyboardAvoidingView } from 'react-native';
-import Styles from '../consts/Styles';
-import BigButton from '../components/BigButton';
+import React from "reactn";
+import { Text, View, TextInput, KeyboardAvoidingView } from "react-native";
+import Styles from "../consts/Styles";
+import BigButton from "../components/BigButton";
+import BackButton from "../components/BackButton";
 
-import * as firebase from 'firebase';
+import * as firebase from "firebase";
 
 export class SingUpScreen extends React.Component {
   static navigationOptions = {
-    header: null,
+    header: null
   };
   constructor(props) {
     super(props);
 
     this.state = {
-      email: '',
-      password: '',
-      name: '',
-      plateNumber: '',
+      email: "",
+      password: "",
+      name: "",
+      plateNumber: ""
     };
   }
 
@@ -36,15 +37,15 @@ export class SingUpScreen extends React.Component {
       if (user) {
         var email = user.email;
         var uid = user.uid;
-        console.log('Zalogowano:');
+        console.log("Zalogowano:");
         console.log(email);
         firebase
           .database()
-          .ref('users/' + uid)
+          .ref("users/" + uid)
           .set({
             email: email,
             plateNumber: state.plateNumber,
-            name: state.name,
+            name: state.name
           });
         // ...
       } else {
@@ -55,38 +56,43 @@ export class SingUpScreen extends React.Component {
   };
   render() {
     return (
-      <KeyboardAvoidingView style={Styles.wrapper} behavior='padding' enabled>
+      <KeyboardAvoidingView style={Styles.wrapper} behavior="padding" enabled>
         <Text style={Styles.text}>Rejestracja</Text>
         <TextInput
           style={Styles.textInputSingUp}
-          placeholder='Email'
+          placeholder="Email"
           value={this.state.email}
           onChangeText={t => this.setState({ email: t })}
         />
         <TextInput
           style={Styles.textInputSingUp}
-          textContentType='password'
-          placeholder='Hasło'
+          textContentType="password"
+          placeholder="Hasło"
           value={this.state.password}
           onChangeText={t => this.setState({ password: t })}
         />
         <TextInput
           style={Styles.textInputSingUp}
-          placeholder='Imię'
+          placeholder="Imię"
           value={this.state.name}
           onChangeText={t => this.setState({ name: t })}
         />
         <TextInput
           style={Styles.textInputSingUp}
-          placeholder='Numer rejestracyjny'
+          placeholder="Numer rejestracyjny"
           value={this.state.plateNumber}
           onChangeText={t => this.setState({ plateNumber: t })}
         />
         <BigButton
-          color='#151146'
-          title='Zarejestruj się'
+          color="#151146"
+          title="Zarejestruj się"
           onPress={this.registerUser}
-          width='80%'
+          width="80%"
+        />
+        <BackButton
+          title="Wróć"
+          onPress={() => this.props.navigation.goBack()}
+          width="20%"
         />
       </KeyboardAvoidingView>
     );
