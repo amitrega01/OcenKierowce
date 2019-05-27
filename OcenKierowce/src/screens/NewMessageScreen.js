@@ -1,4 +1,4 @@
-import React from 'reactn';
+import React from "reactn";
 import {
   Text,
   TextInput,
@@ -6,34 +6,34 @@ import {
   View,
   KeyboardAvoidingView,
   StyleSheet,
-  Image,
-} from 'react-native';
-import Styles from '../consts/Styles';
-import MessageTypeSelector from '../components/MessageTypeSelector';
-import BigButton from '../components/BigButton';
-
-import * as firebase from 'firebase';
+  Image
+} from "react-native";
+import Styles from "../consts/Styles";
+import MessageTypeSelector from "../components/MessageTypeSelector";
+import BigButton from "../components/BigButton";
+import BackButton from "../components/BackButton";
+import * as firebase from "firebase";
 
 export class NewMessageScreen extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      plateNumber: '',
-      message: '',
+      plateNumber: "",
+      message: "",
       location: null,
       errorMessage: null,
-      region: 'Oczekiwanie na GPS',
+      region: "Oczekiwanie na GPS"
     };
   }
 
   static navigationOptions = {
-    header: null,
+    header: null
   };
   render() {
     return (
-      <KeyboardAvoidingView behavior='padding' style={Styles.wrapper}>
-        <Text style={[Styles.bigText, { textAlign: 'center' }]}>
+      <KeyboardAvoidingView behavior="padding" style={Styles.wrapper}>
+        <Text style={[Styles.bigText, { textAlign: "center" }]}>
           Dodaj opinie lub ostrzeżenie
         </Text>
         <View style={styles.row}>
@@ -43,24 +43,25 @@ export class NewMessageScreen extends React.Component {
         <View style={styles.row}>
           <Text style={styles.text}>Typ wiadomości</Text>
           <TextInput
-            placeholder='Numer rejestracyjny'
+            placeholder="Numer rejestracyjny"
             style={styles.input}
             value={this.state.plateNumber}
-            autoCapitalize='characters'
+            autoCapitalize="characters"
             onChangeText={txt => this.setState({ plateNumber: txt })}
           />
         </View>
         <TouchableOpacity
           style={styles.row}
           onPress={() => {
-            this.props.navigation.navigate('Camera');
-          }}>
+            this.props.navigation.navigate("Camera");
+          }}
+        >
           <Text style={styles.text}>Załącz zdjęcie</Text>
         </TouchableOpacity>
         <View style={styles.row}>
           <TextInput
             multiline={true}
-            placeholder='Wpisz treść wiadomości'
+            placeholder="Wpisz treść wiadomości"
             style={styles.input}
             value={this.state.message}
             onChangeText={txt => this.setState({ message: txt })}
@@ -71,8 +72,8 @@ export class NewMessageScreen extends React.Component {
           <Text style={styles.text}>{this.global.region}</Text>
         </View>
         <BigButton
-          color='#00D463'
-          title='Zaloguj się'
+          color="#00D463"
+          title="Zaloguj się"
           onPress={() => {
             let user = firebase.auth().currentUser;
             let message = {
@@ -81,15 +82,20 @@ export class NewMessageScreen extends React.Component {
               plateNumber: this.state.plateNumber,
               region: this.global.region,
               author: { uid: user.uid, anonymouns: user.isAnonymous },
-              timeStamp: Date.now(),
+              timeStamp: Date.now()
             };
             var res = firebase
               .database()
-              .ref('messages/')
+              .ref("messages/")
               .push(message);
             this.props.navigation.pop();
           }}
-          width='60%'
+          width="60%"
+        />
+        <BackButton
+          title="Wróć"
+          onPress={() => this.props.navigation.goBack()}
+          width="20%"
         />
       </KeyboardAvoidingView>
     );
@@ -101,24 +107,24 @@ const styles = StyleSheet.create({
     marginHorizontal: 16,
     marginVertical: 8,
     paddingHorizontal: 16,
-    width: '90%',
-    flexDirection: 'row',
+    width: "90%",
+    flexDirection: "row",
     height: 64,
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    backgroundColor: '#fff',
+    justifyContent: "space-between",
+    alignItems: "center",
+    backgroundColor: "#fff",
     borderRadius: 16,
-    elevation: 4,
+    elevation: 4
   },
   text: {
-    fontWeight: 'bold',
+    fontWeight: "bold",
     fontSize: 18,
-    color: 'rgba(0,0,0,0.75)',
+    color: "rgba(0,0,0,0.75)"
   },
   input: {
     flex: 8,
-    textAlign: 'center',
+    textAlign: "center",
     fontSize: 18,
-    fontWeight: 'bold',
-  },
+    fontWeight: "bold"
+  }
 });
