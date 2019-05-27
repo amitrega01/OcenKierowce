@@ -2,6 +2,7 @@ import React from "reactn";
 import { Text, View, TextInput, KeyboardAvoidingView } from "react-native";
 import Styles from "../consts/Styles";
 import BigButton from "../components/BigButton";
+import BackButton from "../components/BackButton";
 
 import * as firebase from "firebase";
 
@@ -62,6 +63,11 @@ export class SingInScreen extends React.Component {
           title="Zaloguj się"
           onPress={this.signIn}
           width="80%"
+        />
+        <BackButton
+          title="Wróć"
+          onPress={() => this.props.navigation.goBack()}
+          width="20%"
         />
       </KeyboardAvoidingView>
     );
