@@ -1,10 +1,43 @@
 import React from 'reactn';
 import { Text, View, StyleSheet, Image, TouchableOpacity } from 'react-native';
+
+import * as firebase from 'firebase';
 export class BigAlert extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      photoUri: null,
+    };
+    console.log(this.props.alert);
   }
 
+  async componentDidMount() {
+    if (this.props.alert.photo) {
+      let url = await firebase
+        .storage()
+        .refFromURL(
+          `gs://ocenkierowce-553e9.appspot.com/${this.props.alert._id}.jpg`
+        )
+        .getDownloadURL()
+        .then(function(url) {
+          // `url` is the download URL for 'images/stars.jpg'
+
+          // This can be downloaded directly:
+          var xhr = new XMLHttpRequest();
+          xhr.responseType = 'blob';
+          xhr.onload = function(event) {
+            var blob = xhr.response;
+          };
+          xhr.open('GET', url);
+          xhr.send();
+          return url;
+        })
+        .catch(() => {
+          return null;
+        });
+      this.setState({ photoUri: url });
+    }
+  }
   //TODO: dodac propsy i przetestowac na jakisch zmockowanych danych json
   render() {
     var color;
@@ -37,14 +70,16 @@ export class BigAlert extends React.Component {
           <Text style={styles.date}>{this.props.alert.region}</Text>
           <Text style={styles.description}>{this.props.alert.message}</Text>
         </View>
-        <View style={styles.imagePart}>
-          {/* <Image
-            style={styles.image}
-            source={{
-              uri: this.props.alert.image,
-            }}
-          /> */}
-        </View>
+        {this.props.alert.photo ? (
+          <View style={styles.imagePart}>
+            <Image
+              style={styles.image}
+              source={{
+                uri: this.state.photoUri,
+              }}
+            />
+          </View>
+        ) : null}
       </TouchableOpacity>
     );
   }

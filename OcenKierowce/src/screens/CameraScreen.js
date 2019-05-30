@@ -25,8 +25,8 @@ export default class CameraExample extends React.Component {
       };
       await this.camera.takePictureAsync(options).then(photo => {
         photo.exif.Orientation = 1;
-        console.log(photo.uri);
-        this.setGlobal({ lastPhoto: photo.base64 });
+
+        this.setGlobal({ lastPhoto: photo.uri });
         this.props.navigation.navigate('NewMessage');
       });
     }

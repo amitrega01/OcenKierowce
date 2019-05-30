@@ -26,9 +26,10 @@ export class RecentAlerts extends React.Component {
             _id: child.key,
           });
         });
+
         return temp.reverse();
       });
-    console.log(data);
+    console.table(data);
     this.setGlobal({ recentAlerts: data });
 
     this.setState({ refreshing: false });
