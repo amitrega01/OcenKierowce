@@ -1,6 +1,4 @@
-<<<<<<< HEAD
 node_modules
-=======
 node_modules/**/*
 .expo/*
 npm-debug.*
@@ -8,4 +6,3 @@ npm-debug.*
 *.p12
 *.key
 *.mobileprovision
->>>>>>> expo-insu

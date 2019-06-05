@@ -17,19 +17,18 @@ export class SearchBar extends React.Component {
           placeholder='Numer tablic'
           onChangeText={plateNumber => this.setState({ plateNumber })}
         />
-        <TouchableOpacity>  
-          <Image style={Styles.searchbarImage}
-            source={require('../../assets/image/search.png')}
-            onPress={() => {
+        <TouchableOpacity
+          onPress={() => {
             this.setGlobal({ toSearch: this.state.plateNumber });
-              this.props.callback();
-            }}
+            this.props.callback();
+          }}>
+          <Image
+            style={Styles.searchbarImage}
+            source={require('../../assets/image/search.png')}
             title='Szukaj'
           />
-
         </TouchableOpacity>
       </View>
-
     );
   }
 }
