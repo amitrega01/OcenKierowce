@@ -2,6 +2,8 @@ import React from 'reactn';
 import { Text, View } from 'react-native';
 import Styles from '../consts/Styles';
 import BigButton from '../components/BigButton';
+import SerachBar from '../containers/SearchBar';
+
 
 import * as firebase from 'firebase';
 export class FirstRunScreen extends React.Component {
