@@ -9,9 +9,7 @@ import {
 import Styles from "../consts/Styles";
 import RecentAlerts from "../containers/RecentAlerts";
 import Footer from "../containers/Footer";
-
 import { Constants, Location, Permissions } from "expo";
-
 import * as firebase from "firebase";
 import AboutYou from "../containers/AboutYou";
 import SearchBar from "../containers/SearchBar";

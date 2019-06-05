@@ -30,7 +30,7 @@ export class SearchBar extends React.Component {
         />
         <Button
           onPress={() => {
-            this.setGlobal({ toSearch: plateNumber });
+            this.setGlobal({ toSearch: this.state.plateNumber });
             this.props.callback();
           }}
           title="Szukaj"
