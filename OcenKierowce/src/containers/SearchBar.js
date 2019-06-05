@@ -1,5 +1,6 @@
 import React from 'reactn';
-import { TouchableOpacity, TextInput, View, Button } from 'react-native';
+import { TouchableOpacity, TextInput, View, Image } from 'react-native';
+import Styles from '../consts/Styles';
 export class SearchBar extends React.Component {
   constructor(props) {
     super(props);
@@ -10,20 +11,25 @@ export class SearchBar extends React.Component {
 
   render() {
     return (
-      <View>
+      <View style={Styles.searchbar}>
         <TextInput
-          style={{ height: 40 }}
+          style={Styles.searchbarTextInput}
           placeholder='Numer tablic'
           onChangeText={plateNumber => this.setState({ plateNumber })}
         />
-        <Button
-          onPress={() => {
+        <TouchableOpacity>  
+          <Image style={Styles.searchbarImage}
+            source={require('../../assets/image/search.png')}
+            onPress={() => {
             this.setGlobal({ toSearch: this.state.plateNumber });
-            this.props.callback();
-          }}
-          title='Szukaj'
-        />
+              this.props.callback();
+            }}
+            title='Szukaj'
+          />
+
+        </TouchableOpacity>
       </View>
+
     );
   }
 }

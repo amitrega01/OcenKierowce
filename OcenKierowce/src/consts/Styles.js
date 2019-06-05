@@ -80,4 +80,32 @@ export default (styles = StyleSheet.create({
     width: 64,
     flex: 1,
   },
+  searchbar:{
+    backgroundColor: '#151146',
+    flexDirection: 'row',
+    width: '100%',
+    height: 64,
+    marginBottom: 5,
+    justifyContent: 'center',
+    alignItems: 'stretch',
+    alignSelf: 'flex-end'
+  },
+  searchbarTextInput: {
+    height: 40,
+    flex: 8,
+    margin: 8,
+    borderRadius: 16,
+    elevation: 4,
+    textAlign: 'center',
+    fontSize: 14,
+    fontWeight: 'bold',
+    backgroundColor: '#FFF'
+  },
+  searchbarImage: {
+    height: 40,
+    width: 40,
+    alignContent: 'center',
+    borderRadius: 16,
+    backgroundColor: '#FFF'
+  }
 }));
