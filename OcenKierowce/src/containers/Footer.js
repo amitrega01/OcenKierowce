@@ -1,12 +1,5 @@
 import React from 'reactn';
-import {
-  TouchableOpacity,
-  TextInput,
-  Modal,
-  Text,
-  View,
-  Image,
-} from 'react-native';
+import { TouchableOpacity, View, Image } from 'react-native';
 import Styles from '../consts/Styles';
 import MessageTypeSelector from '../components/MessageTypeSelector';
 import BigButton from '../components/BigButton';
@@ -25,20 +18,12 @@ export class Footer extends React.Component {
   render() {
     return (
       <View style={Styles.footer}>
-        <MessageTypeSelector />
-
         <BigButton
           color='#FFF'
           title='Dodaj nową wiadomość'
           onPress={this.props.bigButtonPress}
-          width='60%'
+          width='80%'
         />
-        <TouchableOpacity activeOpacity={0.8}>
-          <Image
-            style={Styles.footerImages}
-            source={require('../../assets/image/image.png')}
-          />
-        </TouchableOpacity>
       </View>
     );
   }
