@@ -2,13 +2,11 @@ import React, { setGlobal } from 'reactn';
 import { createStackNavigator, createAppContainer } from 'react-navigation';
 import FirstRunScreen from './src/screens/FirstRunScreen';
 import SingUpScreen from './src/screens/SingUpScreen';
-import SingInScreen from './src/screens/SignInScreen';
 import HomeScreen from './src/screens/HomeScreen';
 import NewMessageScreen from './src/screens/NewMessageScreen';
-
 import CameraScreen from './src/screens/CameraScreen';
-
 import SingInScreen from './src/screens/SingInScreen';
+
 const MainNavigator = createStackNavigator({
   //TODO EKRANY
   FirstRun: { screen: FirstRunScreen },
@@ -17,7 +15,6 @@ const MainNavigator = createStackNavigator({
   SignIn: { screen: SingInScreen },
   NewMessage: { screen: NewMessageScreen },
   Camera: { screen: CameraScreen },
-  SingIn: { screen: SingInScreen },
 });
 
 const AppContainer = createAppContainer(MainNavigator);
