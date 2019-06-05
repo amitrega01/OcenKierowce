@@ -16,7 +16,9 @@ export class BigAlert extends React.Component {
       let url = await firebase
         .storage()
         .refFromURL(
-          `gs://ocenkierowce-553e9.appspot.com/${this.props.alert._id}.jpg`
+          `gs://ocenkierowce-553e9.appspot.com/thumb_${
+            this.props.alert._id
+          }.jpg`
         )
         .getDownloadURL()
         .then(function(url) {
