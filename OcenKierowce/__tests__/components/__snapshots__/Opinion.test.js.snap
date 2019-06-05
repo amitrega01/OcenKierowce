@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Opinion /> renders correctly 1`] = `
+<View
+  accessible={true}
+  isTVSelectable={true}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#ed0000",
+      "borderRadius": 20,
+      "elevation": 4,
+      "justifyContent": "center",
+      "margin": 8,
+      "opacity": 1,
+      "padding": 20,
+    }
+  }
+>
+  <Text
+    style={
+      Object {
+        "color": "#fff",
+        "fontSize": 15,
+        "fontWeight": "normal",
+      }
+    }
+  >
+    Wiadomosc
+  </Text>
+</View>
+`;

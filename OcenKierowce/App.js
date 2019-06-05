@@ -6,6 +6,7 @@ import HomeScreen from './src/screens/HomeScreen';
 import NewMessageScreen from './src/screens/NewMessageScreen';
 import OpinionDetailsScreen from './src/screens/OpinionDetailsScreen';
 import CameraScreen from './src/screens/CameraScreen';
+
 import SingInScreen from './src/screens/SingInScreen';
 import AboutScreen from './src/screens/AboutScreen';
 const MainNavigator = createStackNavigator({
@@ -17,6 +18,7 @@ const MainNavigator = createStackNavigator({
   NewMessage: { screen: NewMessageScreen },
   Camera: { screen: CameraScreen },
   About: { screen: AboutScreen },
+  OpinionDetails: { screen: OpinionDetailsScreen },
 });
 
 const AppContainer = createAppContainer(MainNavigator);
