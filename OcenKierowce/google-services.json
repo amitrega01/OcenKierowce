@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "168007944726",
+    "firebase_url": "https://ocenkierowce-553e9.firebaseio.com",
+    "project_id": "ocenkierowce-553e9",
+    "storage_bucket": "ocenkierowce-553e9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:168007944726:android:89de770369357173",
+        "android_client_info": {
+          "package_name": "com.insu.ocenkierowce"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "168007944726-lni55dkbhkj50h2230n82depovfpdq43.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDH2oudWfsmoVUxBRklzjTeNWF_OBXE6i0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "168007944726-lni55dkbhkj50h2230n82depovfpdq43.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

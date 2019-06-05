@@ -58,7 +58,10 @@ export class HomeScreen extends React.Component {
           <SerachBar
             callback={() => this.props.navigation.navigate('NazwaEkranu')}
           />
-          <RecentAlerts />
+
+          <RecentAlerts
+            callback={() => this.props.navigation.navigate('OpinionDetails')}
+          />
 
           <Footer
             style={{ position: 'fixed', bottom: 0 }}
@@ -75,8 +78,9 @@ export class HomeScreen extends React.Component {
             callback={() => this.props.navigation.navigate('NazwaEkranu')}
           />
           <AboutYou />
-          <RecentAlerts />
-
+          <RecentAlerts
+            callback={() => this.props.navigation.navigate('OpinionDetails')}
+          />
           <Footer
             style={{ position: 'fixed', bottom: 0 }}
             bigButtonPress={() => this.props.navigation.navigate('NewMessage')}

@@ -21,7 +21,8 @@
       "supportsTablet": true
     },
     "android": {
-      "package": "com.insudev.ocenkierowce"
+      "package": "com.insudev.ocenkierowce",
+      "googleServicesFile": "./google-services.json"
     }
   }
 }

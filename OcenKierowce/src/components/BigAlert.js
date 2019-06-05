@@ -1,6 +1,7 @@
 import React from 'reactn';
 import { Text, View, StyleSheet, Image, TouchableOpacity } from 'react-native';
 
+import moment from 'moment';
 import * as firebase from 'firebase';
 export class BigAlert extends React.Component {
   constructor(props) {
@@ -61,14 +62,14 @@ export class BigAlert extends React.Component {
       <TouchableOpacity
         style={styles.wrapper}
         activeOpacity={0.9}
-        onPress={() => {
-          alert(JSON.stringify(this.props.alert));
-        }}>
+        onPress={() => this.props.callback(this.props.alert._id)}>
         <View style={styles.content}>
           <Text style={[styles.header, { backgroundColor: color }]}>
             {this.props.alert.plateNumber}{' '}
           </Text>
-          <Text style={styles.date}>{this.props.alert.timeStamp}</Text>
+          <Text style={styles.date}>
+            {moment(this.props.alert.timeStamp).format('DD-MM-YYYY hh:mm A')}
+          </Text>
           <Text style={styles.date}>{this.props.alert.region}</Text>
           <Text style={styles.description}>{this.props.alert.message}</Text>
         </View>

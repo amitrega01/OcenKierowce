@@ -102,7 +102,7 @@ export class NewMessageScreen extends React.Component {
             let message = {
               message: this.state.message,
               type: this.global.currentType,
-              plateNumber: this.state.plateNumber,
+              plateNumber: this.state.plateNumber.replace(/\s+/g, ''),
               region: this.global.region,
               photo: this.global.lastPhoto ? true : false,
               author: { uid: user.uid, anonymouns: user.isAnonymous },
