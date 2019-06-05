@@ -9,12 +9,10 @@ import {
 import Styles from '../consts/Styles';
 import RecentAlerts from '../containers/RecentAlerts';
 import Footer from '../containers/Footer';
-
 import { Constants, Location, Permissions } from 'expo';
-
 import * as firebase from 'firebase';
 import AboutYou from '../containers/AboutYou';
-import SerachBar from '../containers/SearchBar';
+import SearchBar from '../containers/SearchBar';
 
 export class HomeScreen extends React.Component {
   static navigationOptions = {
@@ -55,14 +53,11 @@ export class HomeScreen extends React.Component {
       return (
         <KeyboardAvoidingView behavior='padding' style={Styles.wrapper}>
           {/* wariant dla anonimowych */}
-          <SerachBar
-            callback={() => this.props.navigation.navigate('NazwaEkranu')}
-          />
 
+          <SearchBar callback={() => this.props.navigation.navigate('About')} />
           <RecentAlerts
             callback={() => this.props.navigation.navigate('OpinionDetails')}
           />
-
           <Footer
             style={{ position: 'fixed', bottom: 0 }}
             bigButtonPress={() => this.props.navigation.navigate('NewMessage')}
@@ -72,11 +67,7 @@ export class HomeScreen extends React.Component {
     } else {
       return (
         <KeyboardAvoidingView behavior='padding' style={Styles.wrapper}>
-          {/* wariant dla anonimowych */}
-
-          <SerachBar
-            callback={() => this.props.navigation.navigate('NazwaEkranu')}
-          />
+          <SearchBar callback={() => this.props.navigation.navigate('About')} />
           <AboutYou />
           <RecentAlerts
             callback={() => this.props.navigation.navigate('OpinionDetails')}

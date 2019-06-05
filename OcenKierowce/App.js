@@ -7,7 +7,7 @@ import NewMessageScreen from './src/screens/NewMessageScreen';
 import OpinionDetailsScreen from './src/screens/OpinionDetailsScreen';
 import CameraScreen from './src/screens/CameraScreen';
 import SingInScreen from './src/screens/SingInScreen';
-
+import AboutScreen from './src/screens/AboutScreen';
 const MainNavigator = createStackNavigator({
   //TODO EKRANY
   FirstRun: { screen: FirstRunScreen },
@@ -16,7 +16,7 @@ const MainNavigator = createStackNavigator({
   SignIn: { screen: SingInScreen },
   NewMessage: { screen: NewMessageScreen },
   Camera: { screen: CameraScreen },
-  OpinionDetails: { screen: OpinionDetailsScreen },
+  About: { screen: AboutScreen },
 });
 
 const AppContainer = createAppContainer(MainNavigator);
