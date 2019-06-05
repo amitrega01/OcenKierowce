@@ -1,4 +1,4 @@
-import React from 'reactn';
+import React from "reactn";
 import {
   TouchableOpacity,
   TextInput,
@@ -7,16 +7,16 @@ import {
   View,
   Image,
   Button,
-  Alert,
-} from 'react-native';
-import Styles from '../consts/Styles';
-import MessageTypeSelector from '../components/MessageTypeSelector';
-import BigButton from '../components/BigButton';
-export class SerachBar extends React.Component {
+  Alert
+} from "react-native";
+import Styles from "../consts/Styles";
+import MessageTypeSelector from "../components/MessageTypeSelector";
+import BigButton from "../components/BigButton";
+export class SearchBar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      text: '',
+      plateNumber: ""
     };
   }
 
@@ -25,18 +25,18 @@ export class SerachBar extends React.Component {
       <View>
         <TextInput
           style={{ height: 40 }}
-          placeholder='Numer tablic'
-          onChangeText={text => this.setState({ text })}
+          placeholder="Numer tablic"
+          onChangeText={plateNumber => this.setState({ plateNumber })}
         />
         <Button
           onPress={() => {
-            this.setGlobal({ toSearch: text });
+            this.setGlobal({ toSearch: plateNumber });
             this.props.callback();
           }}
-          title='Szukaj'
+          title="Szukaj"
         />
       </View>
     );
   }
 }
-export default SerachBar;
+export default SearchBar;
