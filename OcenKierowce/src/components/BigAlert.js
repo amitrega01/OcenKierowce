@@ -61,9 +61,7 @@ export class BigAlert extends React.Component {
       <TouchableOpacity
         style={styles.wrapper}
         activeOpacity={0.9}
-        onPress={() => {
-          alert(JSON.stringify(this.props.alert));
-        }}>
+        onPress={() => this.props.callback(this.props.alert._id)}>
         <View style={styles.content}>
           <Text style={[styles.header, { backgroundColor: color }]}>
             {this.props.alert.plateNumber}{' '}

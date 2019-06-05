@@ -4,10 +4,15 @@ import Styles from '../consts/Styles';
 import BigAlert from '../components/BigAlert';
 
 import * as firebase from 'firebase';
+import OpinionDetailsModal from './OpinionDetailsModal';
 
 export class RecentAlerts extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      visibleModal: false,
+      alert: null,
+    };
   }
   async componentWillMount() {
     await this.fetchData();
@@ -34,6 +39,12 @@ export class RecentAlerts extends React.Component {
 
     this.setState({ refreshing: false });
   }
+  showModal = id => {
+    this.setState({
+      alert: this.global.recentAlerts.find(item => item._id == id),
+      visibleModal: true,
+    });
+  };
   render() {
     return (
       <View style={Styles.wrapper}>
@@ -51,8 +62,15 @@ export class RecentAlerts extends React.Component {
             paddingHorizontal: 16,
           }}
           data={this.global.recentAlerts}
-          renderItem={({ item, separators }) => <BigAlert alert={item} />}
+          renderItem={({ item, separators }) => (
+            <BigAlert alert={item} callback={this.showModal} />
+          )}
           keyExtractor={(item, index) => item._id}
+        />
+        <OpinionDetailsModal
+          visible={this.state.visibleModal}
+          alert={this.state.alert}
+          callback={() => this.setState({ visibleModal: false })}
         />
       </View>
     );

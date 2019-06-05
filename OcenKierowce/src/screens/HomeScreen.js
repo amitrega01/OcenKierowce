@@ -14,6 +14,7 @@ import { Constants, Location, Permissions } from 'expo';
 
 import * as firebase from 'firebase';
 import AboutYou from '../containers/AboutYou';
+import OpinionDetailsModal from '../containers/OpinionDetailsModal';
 
 export class HomeScreen extends React.Component {
   static navigationOptions = {
