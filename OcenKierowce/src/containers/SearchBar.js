@@ -7,37 +7,34 @@ import {
   View,
   Image,
   Button,
-  Alert
+  Alert,
 } from 'react-native';
 import Styles from '../consts/Styles';
 import MessageTypeSelector from '../components/MessageTypeSelector';
 import BigButton from '../components/BigButton';
 export class SerachBar extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
-      TextInputValue: ''
-    }
-}
+      text: '',
+    };
+  }
 
-buttonClickListener = () =>{
-    const { TextInputValue }  = this.state ;
-    Alert.alert(TextInputValue);
-}
-
-  //<Text style={Styles.mediumText}>Opinie o {this.global.plateNo}</Text> ->
-  //onChangeText={(text) => this.setState({text})}
-  //text = plateNo
-  
   render() {
     return (
       <View>
-      <TextInput
-        style={{height: 40}}
-        placeholder="Napisz że co!"
-        onChangeText={TextInputValue => this.setState({TextInputValue})}
-      /> 
-      <Button onPress={this.buttonClickListener} title='OKEJ'/>
+        <TextInput
+          style={{ height: 40 }}
+          placeholder='Numer tablic'
+          onChangeText={text => this.setState({ text })}
+        />
+        <Button
+          onPress={() => {
+            this.setGlobal({ toSearch: text });
+            this.props.callback();
+          }}
+          title='Szukaj'
+        />
       </View>
     );
   }

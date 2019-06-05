@@ -55,7 +55,9 @@ export class HomeScreen extends React.Component {
       return (
         <KeyboardAvoidingView behavior='padding' style={Styles.wrapper}>
           {/* wariant dla anonimowych */}
-          <SerachBar/>
+          <SerachBar
+            callback={() => this.props.navigation.navigate('NazwaEkranu')}
+          />
           <RecentAlerts />
 
           <Footer
@@ -68,7 +70,10 @@ export class HomeScreen extends React.Component {
       return (
         <KeyboardAvoidingView behavior='padding' style={Styles.wrapper}>
           {/* wariant dla anonimowych */}
-          <SerachBar/>
+
+          <SerachBar
+            callback={() => this.props.navigation.navigate('NazwaEkranu')}
+          />
           <AboutYou />
           <RecentAlerts />
 
