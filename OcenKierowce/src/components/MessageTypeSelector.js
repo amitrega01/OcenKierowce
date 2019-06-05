@@ -2,7 +2,7 @@ import React from 'reactn';
 import { Text, View, Modal, Image, TouchableOpacity } from 'react-native';
 import Styles from '../consts/Styles';
 
-const types = ['UPVOTE', 'DOWNVOTE', 'ALERT'];
+const types = ['UPVOTE', 'DOWNVOTE'];
 export class MessageTypeSelector extends React.Component {
   constructor(props) {
     super(props);
@@ -12,7 +12,7 @@ export class MessageTypeSelector extends React.Component {
   switchType() {
     this.setGlobal({
       currentType:
-        this.global.currentType == types[2]
+        this.global.currentType == types[1]
           ? types[0]
           : types[types.indexOf(this.global.currentType) + 1],
     });

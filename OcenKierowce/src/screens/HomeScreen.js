@@ -14,7 +14,7 @@ import { Constants, Location, Permissions } from 'expo';
 
 import * as firebase from 'firebase';
 import AboutYou from '../containers/AboutYou';
-import OpinionDetailsModal from '../containers/OpinionDetailsModal';
+import OpinionDetailsModal from './OpinionDetailsScreen';
 
 export class HomeScreen extends React.Component {
   static navigationOptions = {
@@ -55,7 +55,9 @@ export class HomeScreen extends React.Component {
       return (
         <KeyboardAvoidingView behavior='padding' style={Styles.wrapper}>
           {/* wariant dla anonimowych */}
-          <RecentAlerts />
+          <RecentAlerts
+            callback={() => this.props.navigation.navigate('OpinionDetails')}
+          />
 
           <Footer
             style={{ position: 'fixed', bottom: 0 }}
@@ -68,8 +70,9 @@ export class HomeScreen extends React.Component {
         <KeyboardAvoidingView behavior='padding' style={Styles.wrapper}>
           {/* wariant dla anonimowych */}
           <AboutYou />
-          <RecentAlerts />
-
+          <RecentAlerts
+            callback={() => this.props.navigation.navigate('OpinionDetails')}
+          />
           <Footer
             style={{ position: 'fixed', bottom: 0 }}
             bigButtonPress={() => this.props.navigation.navigate('NewMessage')}

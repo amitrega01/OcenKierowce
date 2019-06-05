@@ -4,7 +4,7 @@ import Styles from '../consts/Styles';
 import BigAlert from '../components/BigAlert';
 
 import * as firebase from 'firebase';
-import OpinionDetailsModal from './OpinionDetailsModal';
+import OpinionDetailsModal from '../screens/OpinionDetailsScreen';
 
 export class RecentAlerts extends React.Component {
   constructor(props) {
@@ -37,13 +37,13 @@ export class RecentAlerts extends React.Component {
     console.table(data);
     this.setGlobal({ recentAlerts: data });
 
-    this.setState({ refreshing: false });
+    this.setState({ refreshing: false, alert: data[0] });
   }
   showModal = id => {
-    this.setState({
-      alert: this.global.recentAlerts.find(item => item._id == id),
-      visibleModal: true,
+    this.setGlobal({
+      detailsAlert: this.global.recentAlerts.find(item => item._id == id),
     });
+    this.props.callback();
   };
   render() {
     return (
@@ -66,11 +66,6 @@ export class RecentAlerts extends React.Component {
             <BigAlert alert={item} callback={this.showModal} />
           )}
           keyExtractor={(item, index) => item._id}
-        />
-        <OpinionDetailsModal
-          visible={this.state.visibleModal}
-          alert={this.state.alert}
-          callback={() => this.setState({ visibleModal: false })}
         />
       </View>
     );
