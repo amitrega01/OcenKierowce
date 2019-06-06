@@ -1,5 +1,5 @@
 import React from 'reactn';
-import { Text, View, FlatList } from 'react-native';
+import { Text, View, FlatList, TouchableOpacity } from 'react-native';
 import Styles from '../consts/Styles';
 import * as firebase from 'firebase';
 import moment from 'moment';
@@ -19,7 +19,6 @@ export class AboutScreen extends React.Component {
   }
   async fetchData() {
     this.setState({ refreshing: true });
-    console.log('USER DETAILS');
     let plate = this.global.toSearch;
     let data = await firebase
       .database()
@@ -56,16 +55,22 @@ export class AboutScreen extends React.Component {
           }}
           data={this.state.data}
           renderItem={({ item, separators }) => (
-            <View
+            <TouchableOpacity
               style={{
                 flexDirection: 'row',
                 borderBottomWidth: 0.25,
                 borderBottomColor: 'rgba(0,0,0,0.25)',
                 padding: 16,
+              }}
+              onPress={() => {
+                this.setGlobal({
+                  detailsAlert: item,
+                });
+                this.props.navigation.navigate('About');
               }}>
               <Text>{item.message}</Text>
               <Text>{moment(item.timeStamp).format('DD-MM-YYYY hh:mm A')}</Text>
-            </View>
+            </TouchableOpacity>
           )}
           keyExtractor={(item, index) => item._id}
         />

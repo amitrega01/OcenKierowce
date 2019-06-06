@@ -16,10 +16,13 @@ export class SearchBar extends React.Component {
           style={Styles.searchbarTextInput}
           placeholder='Numer tablic'
           onChangeText={plateNumber => this.setState({ plateNumber })}
+          autoCapitalize='characters'
         />
         <TouchableOpacity
           onPress={() => {
-            this.setGlobal({ toSearch: this.state.plateNumber });
+            this.setGlobal({
+              toSearch: this.state.plateNumber.replace(/\s+/g, ''),
+            });
             this.props.callback();
           }}>
           <Image
