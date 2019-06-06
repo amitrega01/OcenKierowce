@@ -2,7 +2,6 @@ import { StyleSheet } from 'react-native';
 
 export default (styles = StyleSheet.create({
   wrapper: {
-    paddingTop: 24,
     flex: 1,
     width: '100%',
     alignItems: 'center',
