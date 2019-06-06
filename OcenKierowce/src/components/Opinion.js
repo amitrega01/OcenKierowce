@@ -9,12 +9,11 @@ class Opinion extends Component {
     var color;
     switch (this.props.opinion.type) {
       case 'UPVOTE': {
-        color = '#02e053';
+        color = '#00D463';
         break;
       }
-
       case 'DOWNVOTE': {
-        color = '#ed0000';
+        color = '#FE4F37';
         break;
       }
     }
@@ -38,7 +37,6 @@ const styles = StyleSheet.create({
     padding: 16,
     elevation: 4,
     borderRadius: 20,
-    padding: 20,
   },
   text: {
     fontWeight: 'normal',

@@ -40,7 +40,7 @@ export class AboutYou extends React.Component {
   }
   render() {
     return (
-      <View style={[Styles.wrapper, { flex: 0.2 }]}>
+      <View style={[Styles.wrapper, { flex: 0.15 }]}>
         <Text style={Styles.mediumText}>Opinie o Tobie</Text>
         <FlatList
           onRefresh={() => {

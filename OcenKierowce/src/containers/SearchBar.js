@@ -1,6 +1,8 @@
 import React from 'reactn';
 import { TouchableOpacity, TextInput, View, Image } from 'react-native';
 import Styles from '../consts/Styles';
+
+import { Ionicons } from '@expo/vector-icons';
 export class SearchBar extends React.Component {
   constructor(props) {
     super(props);
@@ -17,6 +19,12 @@ export class SearchBar extends React.Component {
           placeholder='Numer tablic'
           onChangeText={plateNumber => this.setState({ plateNumber })}
           autoCapitalize='characters'
+          onSubmitEditing={() => {
+            this.setGlobal({
+              toSearch: this.state.plateNumber.replace(/\s+/g, ''),
+            });
+            this.props.callback();
+          }}
         />
         <TouchableOpacity
           onPress={() => {
@@ -25,11 +33,7 @@ export class SearchBar extends React.Component {
             });
             this.props.callback();
           }}>
-          <Image
-            style={Styles.searchbarImage}
-            source={require('../../assets/image/search.png')}
-            title='Szukaj'
-          />
+          <Ionicons name='md-search' size={32} color='white' />
         </TouchableOpacity>
       </View>
     );

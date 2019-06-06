@@ -41,8 +41,19 @@ export class AboutScreen extends React.Component {
   }
   render() {
     return (
-      <View style={[Styles.wrapper, { flex: 1 }]}>
-        <Text style={Styles.mediumText}>Opinie o {this.global.toSearch}</Text>
+      <View style={Styles.wrapper}>
+        <View
+          style={{ paddingTop: 32, backgroundColor: '#151146', width: '100%' }}>
+          <Text
+            style={{
+              padding: 16,
+              color: '#fff',
+              fontSize: 24,
+              fontWeight: 'bold',
+            }}>
+            Opinie o {this.global.toSearch}
+          </Text>
+        </View>
         <FlatList
           onRefresh={() => {
             this.fetchData();
