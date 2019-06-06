@@ -30,6 +30,8 @@ Aplikacja została podzielona na komponenty:
 - **Containers** – zawiera tzw. "Dummy components", czyli komponenty bez szczególnej funkcjolnalności, używane do przechowywania mniejszych komponentów np. elementów listy
 - **Components –** inne komponenty – przyciski, nagłowki itp.
 - **Consts –** pliki zwierające stałe typu kolory, ciągi znaków i style
+
+
 ![](https://paper-attachments.dropbox.com/s_F40F21A887B88E3739368B4CD66463054F46D58B3B626E94E83FC43FC631120E_1559768605581_image.png)
 
 
