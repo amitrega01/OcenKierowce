@@ -61,12 +61,13 @@ export class AboutScreen extends React.Component {
                 borderBottomWidth: 0.25,
                 borderBottomColor: 'rgba(0,0,0,0.25)',
                 padding: 16,
+                justifyContent: 'space-between',
               }}
               onPress={() => {
                 this.setGlobal({
                   detailsAlert: item,
                 });
-                this.props.navigation.navigate('About');
+                this.props.navigation.navigate('OpinionDetails');
               }}>
               <Text>{item.message}</Text>
               <Text>{moment(item.timeStamp).format('DD-MM-YYYY hh:mm A')}</Text>
