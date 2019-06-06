@@ -1,3 +1,0 @@
-# Korepetytor API
-
-Api

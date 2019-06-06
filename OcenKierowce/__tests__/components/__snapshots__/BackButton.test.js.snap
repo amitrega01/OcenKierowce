@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<BackButton /> renders correctly 1`] = `
+<View
+  accessible={true}
+  isTVSelectable={true}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "left": 16,
+      "opacity": 1,
+      "position": "absolute",
+      "top": 32,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "flex": 1,
+        "flexDirection": "row",
+      }
+    }
+  >
+    <Text />
+    <Text
+      style={
+        Object {
+          "color": "rgba(0,0,0,0.75)",
+          "marginLeft": 8,
+        }
+      }
+    >
+      Wróc
+    </Text>
+  </View>
+</View>
+`;
