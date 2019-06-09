@@ -134,11 +134,29 @@ export class FirstRunScreen extends React.Component {
             } catch ({ message }) {
               alert('GoogleSignIn.initAsync(): ' + message);
             }
+
             try {
               await GoogleSignIn.askForPlayServicesAsync();
               const { type, user } = await GoogleSignIn.signInAsync();
               if (type === 'success') {
-                alert(JSON.stringify(user));
+                const credential = firebase.auth.GoogleAuthProvider.credential(
+                  user.auth
+                );
+                firebase
+                  .auth()
+                  .signInWithCredential(credential)
+                  .then(res => {
+                    this.props.navigation.navigate('CredentialSignUp', {
+                      id: res.user.uid,
+                      user: {
+                        name: res.user.displayName,
+                        email: res.user.email,
+                      },
+                    });
+                  })
+                  .catch(error => {
+                    alert(error);
+                  });
               }
             } catch ({ message }) {
               alert('login: Error:' + message);
