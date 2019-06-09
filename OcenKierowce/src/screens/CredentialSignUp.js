@@ -37,6 +37,7 @@ export class CredentialSignUp extends React.Component {
           style={Styles.textInputSingUp}
           placeholder='Numer rejestracyjny'
           value={this.state.plateNumber}
+          autoCapitalize='characters'
           onChangeText={t => this.setState({ plateNumber: t })}
         />
         <BigButton
@@ -47,11 +48,12 @@ export class CredentialSignUp extends React.Component {
               ...user,
               plateNumber: this.state.plateNumber,
             };
+
             firebase
               .database()
               .ref('users/' + id)
               .set(toDb);
-
+            this.setGlobal({ userDetails: toDb });
             AsyncStorage.setItem(
               'USER',
               JSON.stringify({

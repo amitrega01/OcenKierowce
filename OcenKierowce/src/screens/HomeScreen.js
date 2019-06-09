@@ -70,7 +70,9 @@ export class HomeScreen extends React.Component {
       return (
         <KeyboardAvoidingView behavior='padding' style={Styles.wrapper}>
           <SearchBar callback={() => this.props.navigation.navigate('About')} />
-          <AboutYou />
+          <AboutYou
+            callback={() => this.props.navigation.navigate('OpinionDetails')}
+          />
           <RecentAlerts
             callback={() => this.props.navigation.navigate('OpinionDetails')}
           />

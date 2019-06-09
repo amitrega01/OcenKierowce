@@ -25,6 +25,7 @@ export default class CameraExample extends React.Component {
         quality: 0,
         base64: true,
         fixOrientation: true,
+
         exif: true,
         skipProcessing: true,
       };
@@ -57,7 +58,7 @@ export default class CameraExample extends React.Component {
             autoFocus={false}
             useCamera2Api={true}
             style={{
-              flex: 1,
+              width: '100%',
             }}
             type={this.state.type}>
             <View

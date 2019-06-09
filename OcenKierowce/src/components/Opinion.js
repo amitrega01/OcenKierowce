@@ -21,7 +21,7 @@ class Opinion extends Component {
       <TouchableOpacity
         activeOpacity={0.8}
         style={[styles.wrapper, { backgroundColor: color }]}
-        onPress={this.props.onPress}>
+        onPress={() => this.props.callback(this.props.opinion._id)}>
         <Text style={styles.text}>{this.props.opinion.message}</Text>
       </TouchableOpacity>
     );
