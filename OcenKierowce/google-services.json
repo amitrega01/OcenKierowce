@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "168007944726-3obu5svb6ihlchmicmhik8616pm4nqob.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.insu.ocenkierowce",
+            "certificate_hash": "f312cff44894371a1939d56709c5bd4be9f2415c"
+          }
+        },
+        {
           "client_id": "168007944726-lni55dkbhkj50h2230n82depovfpdq43.apps.googleusercontent.com",
           "client_type": 3
         }

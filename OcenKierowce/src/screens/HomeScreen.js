@@ -8,7 +8,7 @@ import {
 } from 'react-native';
 import Styles from '../consts/Styles';
 import RecentAlerts from '../containers/RecentAlerts';
-import Footer from '../containers/Footer';
+import { Ionicons } from '@expo/vector-icons';
 import { Constants, Location, Permissions } from 'expo';
 import * as firebase from 'firebase';
 import AboutYou from '../containers/AboutYou';
@@ -58,24 +58,31 @@ export class HomeScreen extends React.Component {
           <RecentAlerts
             callback={() => this.props.navigation.navigate('OpinionDetails')}
           />
-          <Footer
-            style={{ position: 'fixed', bottom: 0 }}
-            bigButtonPress={() => this.props.navigation.navigate('NewMessage')}
-          />
+          <TouchableOpacity
+            activeOpacity={0.9}
+            style={Styles.addButton}
+            onPress={() => this.props.navigation.navigate('NewMessage')}>
+            <Ionicons name='md-add' size={32} color='black' />
+          </TouchableOpacity>
         </KeyboardAvoidingView>
       );
     } else {
       return (
         <KeyboardAvoidingView behavior='padding' style={Styles.wrapper}>
           <SearchBar callback={() => this.props.navigation.navigate('About')} />
-          <AboutYou />
+          <AboutYou
+            callback={() => this.props.navigation.navigate('OpinionDetails')}
+          />
           <RecentAlerts
             callback={() => this.props.navigation.navigate('OpinionDetails')}
           />
-          <Footer
-            style={{ position: 'fixed', bottom: 0 }}
-            bigButtonPress={() => this.props.navigation.navigate('NewMessage')}
-          />
+
+          <TouchableOpacity
+            activeOpacity={0.9}
+            style={Styles.addButton}
+            onPress={() => this.props.navigation.navigate('NewMessage')}>
+            <Ionicons name='md-add' size={32} color='black' />
+          </TouchableOpacity>
         </KeyboardAvoidingView>
       );
     }

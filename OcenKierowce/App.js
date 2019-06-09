@@ -6,9 +6,10 @@ import HomeScreen from './src/screens/HomeScreen';
 import NewMessageScreen from './src/screens/NewMessageScreen';
 import OpinionDetailsScreen from './src/screens/OpinionDetailsScreen';
 import CameraScreen from './src/screens/CameraScreen';
-
+import CredentialSignUp from './src/screens/CredentialSignUp';
 import SingInScreen from './src/screens/SingInScreen';
 import AboutScreen from './src/screens/AboutScreen';
+
 const MainNavigator = createStackNavigator({
   //TODO EKRANY
   FirstRun: { screen: FirstRunScreen },
@@ -19,6 +20,7 @@ const MainNavigator = createStackNavigator({
   Camera: { screen: CameraScreen },
   About: { screen: AboutScreen },
   OpinionDetails: { screen: OpinionDetailsScreen },
+  CredentialSignUp: { screen: CredentialSignUp },
 });
 
 const AppContainer = createAppContainer(MainNavigator);

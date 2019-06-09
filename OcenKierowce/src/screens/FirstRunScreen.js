@@ -23,30 +23,56 @@ export class FirstRunScreen extends React.Component {
   async componentDidMount() {
     try {
       console.log('lol');
-      AsyncStorage.getItem('USER').then(value => {
+      AsyncStorage.getItem('USER').then(async value => {
         if (value == null) {
           this.setState({ loading: false });
           return;
         }
         let user = JSON.parse(value);
-        firebase
-          .auth()
-          .signInWithEmailAndPassword(user.email, user.password)
-          .catch(function(error) {
-            var errorCode = error.code;
-            var errorMessage = error.message;
-            alert(errorMessage);
-          })
-          .then(() => {
+        if (!user.fromGoogleOrFb) {
+          firebase
+            .auth()
+            .signInWithEmailAndPassword(user.email, user.password)
+            .catch(function(error) {
+              var errorCode = error.code;
+              var errorMessage = error.message;
+              alert(errorMessage);
+            })
+            .then(() => {
+              firebase
+                .database()
+                .ref('users/' + firebase.auth().currentUser.uid)
+                .on('value', snapshot => {
+                  this.setState({ loading: false });
+                  this.setGlobal({ userDetails: snapshot.val() });
+                  this.props.navigation.navigate('Home');
+                });
+            });
+        } else {
+          await GoogleSignIn.askForPlayServicesAsync();
+          const { type, user } = await GoogleSignIn.signInAsync();
+          if (type === 'success') {
+            const credential = firebase.auth.GoogleAuthProvider.credential(
+              user.auth
+            );
             firebase
-              .database()
-              .ref('users/' + firebase.auth().currentUser.uid)
-              .on('value', snapshot => {
-                this.setState({ loading: false });
-                this.setGlobal({ userDetails: snapshot.val() });
-                this.props.navigation.navigate('Home');
+              .auth()
+              .signInWithCredential(credential)
+              .then(res => {
+                firebase
+                  .database()
+                  .ref('users/' + res.user.uid)
+                  .on('value', snapshot => {
+                    this.setState({ loading: false });
+                    this.setGlobal({ userDetails: snapshot.val() });
+                    this.props.navigation.navigate('Home');
+                  });
+              })
+              .catch(error => {
+                alert(error);
               });
-          });
+          }
+        }
       });
     } catch (error) {
       console.log(error);
@@ -134,11 +160,29 @@ export class FirstRunScreen extends React.Component {
             } catch ({ message }) {
               alert('GoogleSignIn.initAsync(): ' + message);
             }
+
             try {
               await GoogleSignIn.askForPlayServicesAsync();
               const { type, user } = await GoogleSignIn.signInAsync();
               if (type === 'success') {
-                alert(JSON.stringify(user));
+                const credential = firebase.auth.GoogleAuthProvider.credential(
+                  user.auth
+                );
+                firebase
+                  .auth()
+                  .signInWithCredential(credential)
+                  .then(res => {
+                    this.props.navigation.navigate('CredentialSignUp', {
+                      id: res.user.uid,
+                      user: {
+                        name: res.user.displayName,
+                        email: res.user.email,
+                      },
+                    });
+                  })
+                  .catch(error => {
+                    alert(error);
+                  });
               }
             } catch ({ message }) {
               alert('login: Error:' + message);

@@ -4,7 +4,6 @@ import Styles from '../consts/Styles';
 import BigAlert from '../components/BigAlert';
 
 import * as firebase from 'firebase';
-import OpinionDetailsModal from '../screens/OpinionDetailsScreen';
 
 export class RecentAlerts extends React.Component {
   constructor(props) {

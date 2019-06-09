@@ -2,7 +2,6 @@ import { StyleSheet } from 'react-native';
 
 export default (styles = StyleSheet.create({
   wrapper: {
-    paddingTop: 24,
     flex: 1,
     width: '100%',
     alignItems: 'center',
@@ -48,7 +47,7 @@ export default (styles = StyleSheet.create({
   },
   mediumText: {
     paddingHorizontal: 16,
-    paddingBottom: 4,
+    paddingVertical: 4,
     width: '100%',
     textAlign: 'left',
     fontSize: 24,
@@ -84,7 +83,7 @@ export default (styles = StyleSheet.create({
     backgroundColor: '#151146',
     flexDirection: 'row',
     width: '100%',
-    height: 64,
+    paddingTop: 32,
     paddingHorizontal: 16,
     justifyContent: 'center',
     alignItems: 'center',
@@ -101,11 +100,21 @@ export default (styles = StyleSheet.create({
     fontWeight: 'bold',
     backgroundColor: '#FFF',
   },
-  searchbarImage: {
-    height: 40,
-    width: 40,
-    alignContent: 'center',
-    borderRadius: 16,
-    backgroundColor: '#FFF',
+  addButton: {
+    padding: 16,
+    width: 64,
+    height: 64,
+    position: 'absolute',
+    bottom: 24,
+    right: 24,
+    backgroundColor: '#fff',
+    borderRadius: 80,
+    borderWidth: 0.25,
+    borderColor: 'rgba(0,0,0,0.12)',
+    elevation: 8,
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 }));

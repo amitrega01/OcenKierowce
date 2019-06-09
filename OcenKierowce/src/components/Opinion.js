@@ -9,12 +9,11 @@ class Opinion extends Component {
     var color;
     switch (this.props.opinion.type) {
       case 'UPVOTE': {
-        color = '#02e053';
+        color = '#00D463';
         break;
       }
-
       case 'DOWNVOTE': {
-        color = '#ed0000';
+        color = '#FE4F37';
         break;
       }
     }
@@ -22,7 +21,7 @@ class Opinion extends Component {
       <TouchableOpacity
         activeOpacity={0.8}
         style={[styles.wrapper, { backgroundColor: color }]}
-        onPress={this.props.onPress}>
+        onPress={() => this.props.callback(this.props.opinion._id)}>
         <Text style={styles.text}>{this.props.opinion.message}</Text>
       </TouchableOpacity>
     );
@@ -38,7 +37,6 @@ const styles = StyleSheet.create({
     padding: 16,
     elevation: 4,
     borderRadius: 20,
-    padding: 20,
   },
   text: {
     fontWeight: 'normal',
