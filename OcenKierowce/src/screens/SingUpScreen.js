@@ -1,5 +1,11 @@
 import React from 'reactn';
-import { Text, View, TextInput, KeyboardAvoidingView } from 'react-native';
+import {
+  Text,
+  View,
+  TextInput,
+  KeyboardAvoidingView,
+  AsyncStorage,
+} from 'react-native';
 import Styles from '../consts/Styles';
 import BigButton from '../components/BigButton';
 import BackButton from '../components/BackButton';
@@ -21,7 +27,7 @@ export class SingUpScreen extends React.Component {
     };
   }
 
-  registerUser = () => {
+  registerUser = async () => {
     firebase
       .auth()
       .createUserWithEmailAndPassword(this.state.email, this.state.password)
@@ -39,26 +45,32 @@ export class SingUpScreen extends React.Component {
         var uid = user.uid;
         console.log('Zalogowano:');
 
-        let user = {
+        let toDb = {
           email: email,
-          plateNumber: state.plateNumber,
+          plateNumber: state.plateNumber.replace(/\s+/g, ''),
           name: state.name,
         };
         firebase
           .database()
           .ref('users/' + uid)
-          .set(user)
-          .then(() => {
-            this.setGlobal({
-              userDetails: user,
-            });
-            this.props.navigation.navigate('Home');
-            this._storeData(
-              JSON.stringify({ email: state.email, password: state.password })
-            );
-          });
+          .set(toDb);
+
+        return toDb;
       } else {
       }
+    });
+
+    this.setGlobal({
+      userDetails: {
+        email: state.email,
+        plateNumber: state.plateNumber.replace(/\s+/g, ''),
+        name: state.name,
+      },
+    });
+    await this._storeData(
+      JSON.stringify({ email: state.email, password: state.password })
+    ).then(() => {
+      this.props.navigation.navigate('Home');
     });
   };
 
@@ -94,6 +106,7 @@ export class SingUpScreen extends React.Component {
           style={Styles.textInputSingUp}
           placeholder='Numer rejestracyjny'
           value={this.state.plateNumber}
+          autoCapitalize='characters'
           onChangeText={t => this.setState({ plateNumber: t })}
         />
         <BigButton

@@ -29,7 +29,7 @@ export class SingInScreen extends React.Component {
         var errorCode = error.code;
         var errorMessage = error.message;
         alert(errorMessage);
-        // ...
+        return;
       })
       .then(() => {
         firebase

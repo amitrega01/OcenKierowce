@@ -1,6 +1,21 @@
 import React from 'reactn';
-import { Text, KeyboardAvoidingView, TextInput } from 'react-native';
+import {
+  Text,
+  KeyboardAvoidingView,
+  TextInput,
+  AsyncStorage,
+} from 'react-native';
+import Styles from '../consts/Styles';
+import BigButton from '../components/BigButton';
+import BackButton from '../components/BackButton';
+
+import * as firebase from 'firebase';
+
 export class CredentialSignUp extends React.Component {
+  static navigationOptions = {
+    header: null,
+  };
+
   constructor(props) {
     super(props);
 
@@ -27,7 +42,7 @@ export class CredentialSignUp extends React.Component {
         <BigButton
           color='#151146'
           title='Zarejestruj się'
-          onPress={() => {
+          onPress={async () => {
             let toDb = {
               ...user,
               plateNumber: this.state.plateNumber,
@@ -36,6 +51,17 @@ export class CredentialSignUp extends React.Component {
               .database()
               .ref('users/' + id)
               .set(toDb);
+
+            AsyncStorage.setItem(
+              'USER',
+              JSON.stringify({
+                email: toDb.email,
+                password: '',
+                fromGoogleOrFb: true,
+              })
+            ).then(() => {
+              this.props.navigation.navigate('Home');
+            });
           }}
           width='80%'
         />
