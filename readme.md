@@ -5,7 +5,7 @@
 - Artur Ulfig 
 - Maciej Ślusarek 
 - Wojciech Michalik
-- Patrycjusz Suchanek 
+
 ## Opis projektu
 
 Aplikacja służąca dodawaniu opinii o kierowcach spotykanych na drogach po numerze tablic rejestracyjnych.
